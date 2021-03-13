@@ -22,6 +22,6 @@ class Dosen_model extends CI_Model
             'phone_number'      => $this->input->post('phone_number', true),
         ];
 
-        $this->db->insert('dosen', $data);
+        return $this->db->insert('dosen', $data);
     }
 }

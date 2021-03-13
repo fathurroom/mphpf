@@ -8,6 +8,14 @@ class HomeAddress extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('student_model', 'student');
+		$this->load->library('form_validation');
+	}
+
+	private function _validasi()
+	{
+		$this->form_validation->set_rules('name', 'Nama Dosen', 'required');
+		$this->form_validation->set_rules('address', 'Alamat Dosen', 'required');
+		$this->form_validation->set_rules('phone_number', 'No Telepon', 'required');
 	}
 
 	public function index()
@@ -19,14 +27,19 @@ class HomeAddress extends CI_Controller
 
 	public function addStudent()
 	{
-		if (isset($_POST['submit'])) {
-			// Berarti user sudah mengisi data, tinggal simpan
-			$this->student->addNew();
+		$this->_validasi();
+		if ($this->form_validation->run() == false) {
+			$this->template->load('base_template', 'home/mahasiswa/add_student_template');
+		} else {
+			if (isset($_POST['submit'])) {
+				// Berarti user sudah mengisi data, tinggal simpan
+				$this->student->addNew();
 
-			// Redirect ke halaman awal
-			redirect('homeAddress');
+				// Redirect ke halaman awal
+				redirect('homeAddress');
+			}
+
+			$this->template->load('base_template', 'home/mahasiswa/add_student_template');
 		}
-
-		$this->template->load('base_template', 'home/mahasiswa/add_student_template');
 	}
 }
