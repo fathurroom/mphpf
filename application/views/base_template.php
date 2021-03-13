@@ -11,7 +11,7 @@
     <table border=0 width="100%" cellpadding=0 cellspacing=0>
         <tr style="background-color: #ffe4b0;">
             <td width="54px" valign=baseline>
-                <img src="static/favicon.png" style="width: 50px; height: 50px; margin: 4px;" />
+                <img src="<?= base_url(); ?>static/favicon.png" style="width: 50px; height: 50px; margin: 4px;" />
             </td>
             <td style="padding: 4px;">
                 <b><a href="<?= base_url('dosen'); ?>">M PHP Framework Sample App</a></b>
