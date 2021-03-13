@@ -1,4 +1,4 @@
-<h2>Data Dosen</h2>
+<h2>Data Mata Kuliah</h2>
 <a href="<?= site_url('matkul/addMatkul'); ?>">Tambah Mata Kuliah</a>
 <br />
 <br />
